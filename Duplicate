@@ -1,0 +1,40 @@
+import java.util.*;
+
+public class ExceptionHandling {
+
+    public static void checkForDuplicates(List<Integer> numbers) {
+        Set<Integer> set = new HashSet<>();
+        for (int num : numbers) {
+            if (!set.add(num)) {
+                System.out.println("Error: Duplicate number found: " + num);
+                return;
+            }
+        }
+        System.out.println("No duplicate numbers");
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        List<Integer> numbers = new ArrayList<>();
+
+        System.out.println("Enter a list of integers (enter any non-integer to finish):");
+
+        // Read integers from input
+        while (scanner.hasNextInt()) {
+            int num = scanner.nextInt();
+            numbers.add(num);
+        }
+
+        // Check for duplicates
+        checkForDuplicates(numbers);
+
+        scanner.close();
+        
+        try {
+            int a = 10 / 0; // This will throw ArithmeticException
+            System.out.println(a);
+        } catch (ArithmeticException e) {
+            System.out.println("Exception occurred: " + e.getMessage());
+        }
+    }
+}
