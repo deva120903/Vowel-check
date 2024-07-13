@@ -1,0 +1,37 @@
+public class SimpleVowelChecker {
+
+    // Method to check for vowels in the string
+    public static void checkForVowels(String input) {
+        // String containing all vowels
+        String vowels = "AEIOUaeiou";
+        boolean containsVowel = false;
+
+        // Check each character in the input string
+        for (char c : input.toCharArray()) {
+            if (vowels.indexOf(c) != -1) {
+                containsVowel = true;
+                break;
+            }
+        }
+
+        // Print appropriate message based on the presence of vowels
+        if (containsVowel) {
+            System.out.println("String contains vowels.");
+        } else {
+            System.out.println("Error: String does not contain any vowels");
+        }
+    }
+
+    public static void main(String[] args) {
+        // Sample Input 1
+        String input1 = "Who would know naught of art must learn, act, and then take his ease";
+        // Sample Input 2
+        String input2 = "My Rhythms fly.";
+
+        System.out.println("Original string: " + input1);
+        checkForVowels(input1);
+
+        System.out.println("Original string: " + input2);
+        checkForVowels(input2);
+    }
+}
